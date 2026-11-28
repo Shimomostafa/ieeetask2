@@ -23,7 +23,7 @@ namespace ieeetask2
         public void ShowExamDate()
         {
             Console.WriteLine($"Exam Date: {ExamDate}");
-            Console.WriteLine($"you have {Time_of_exam}S");
+            Console.WriteLine($"you have {Time_of_exam}Minutes");
         }
         public abstract void ShowExam();
         public void TakeAnswers()
@@ -33,25 +33,33 @@ namespace ieeetask2
                 Questions[i].ShowQuestion();
                 
                 bool isValid = false;
-                while (!isValid)
+                do
                 {
                     Console.Write("Enter Answer ID : ");
-                    int answerId = int.Parse(Console.ReadLine());
-                    foreach (Answer ans in Questions[i].Answers)
+                    bool isNumber = int.TryParse(Console.ReadLine(), out int answerId);
+                    if (isNumber)
                     {
-                        if (ans.AnswerID == answerId)
+                        foreach (Answer ans in Questions[i].Answers)
                         {
-                            StdAnswers[i] = ans;
-                            isValid = true;
-                            break;
+                            if (ans.AnswerID == answerId)
+                            {
+                                StdAnswers[i] = ans;
+                                isValid = true;
+                                break;
+                            }
                         }
                     }
-                    if (!isValid)
+                    else
+                    {
+                        Console.WriteLine("please Enter Numbers Only!");
+                    }
+                    if (isNumber&&!isValid)
                     {
                         Console.WriteLine("Invalid Answer ID! Try Again.");
                     }
-                }
-                
+                } while (!isValid);
+
+
             }
         }
     }

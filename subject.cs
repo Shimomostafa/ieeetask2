@@ -15,14 +15,14 @@ namespace ieeetask2
             this.subjectName = subjectName;
             Exam = exam;
         }
-        public void CreateExam(int choice , BaseQuestion[] questions)
+        public void CreateExam(int choice , BaseQuestion[] questions , int examTime)
         {
             if (choice == 1)
             {
-                Exam = new Final_Exam(60 , questions.Length , questions);
+                Exam = new Final_Exam(examTime, questions.Length , questions);
             }else if (choice == 2)
             {
-                Exam = new Practical_Exam(60 , questions.Length , questions);
+                Exam = new Practical_Exam(examTime , questions.Length , questions);
             }
             else
             {
