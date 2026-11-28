@@ -39,7 +39,7 @@
 
                 if (!isNumber || examTime < 45 || examTime > 120)
                 {
-                    Console.WriteLine("Please enter a time between 30 and 180 minutes!");
+                    Console.WriteLine("Please enter a time between 45 and 120 minutes!");
                     examTime = 0;
                 }
 
