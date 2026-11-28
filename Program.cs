@@ -34,7 +34,7 @@
             int examTime = 0;
             do
             {
-                Console.Write("Enter Exam Time (30 - 180 Minutes): ");
+                Console.Write("Enter Exam Time (45 - 180 Minutes): ");
                 bool isNumber = int.TryParse(Console.ReadLine(), out examTime);
 
                 if (!isNumber || examTime < 45 || examTime > 120)
